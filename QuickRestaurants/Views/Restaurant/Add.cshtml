@@ -1,0 +1,91 @@
+﻿@model QuickRestaurants.Models.AddRestaurantViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+</head>
+
+<body>
+    <h1 style="color:aqua">Add Restaurant</h1>
+    <a href="@Url.Action("Index","Restaurant")"><b style="background-color:greenyellow; padding:3px">Restaurants</b></a>
+    <label style="background-color:red" ; padding:10px;>
+        @ViewBag.Message
+    </label>
+
+    <div>
+        @using (Html.BeginForm("Add", "Restaurant", new { }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+        {
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Name</label>
+                        @Html.TextAreaFor(m => m.Name, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Address</label>
+                        @Html.TextAreaFor(m => m.Address, 4, 20, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Mobile</label>
+                        @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Website</label>
+                        @Html.TextBoxFor(m => m.Website, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Opening Time</label>
+                        @Html.TextBoxFor(m => m.Time, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Open Days</label>
+                        @Html.TextBoxFor(m => m.Days, new { @class = "form-control", })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group-btn">
+                        <input type="submit" value="Add Restaurant" class="btn btn-dark" />
+                    </div>
+                </div>
+            </div>
+            <label style="background-color:red">
+                @ViewBag.Message
+            </label>
+        }
+    </div>
+</body>
+</html>

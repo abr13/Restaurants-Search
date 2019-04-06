@@ -1,0 +1,29 @@
+﻿@model List<QuickRestaurants.Models.RestaurantViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Restaurants</h3>
+<a href="@Url.Action("Add","Restaurant")"><b style="background-color:greenyellow; padding:3px">Add Restaurants</b></a>
+
+@if (Model != null&& Model.Any())
+{
+    foreach (var item in Model)
+    {
+        <p style="padding:10px;border:2px solid rgb(255, 156, 0);margin:10px;">
+            Name     : @item.Name<br />
+            Address  : @item.Address<br />
+            Mobile   : @item.Mobile<br />
+            Website  : @item.Website<br />
+            Time     : @item.Time<br/>
+            Days     : @item.Days <br/>
+            
+            <a href="@Url.Action("Manage","Restaurant", new { RestaurantID = item.RestaurantID })"> Modify Details </a>
+        </p>
+    }
+}
+else
+{
+    <p>Data Not Found</p>
+}
